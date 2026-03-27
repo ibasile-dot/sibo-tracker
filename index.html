@@ -334,7 +334,6 @@ h1,h2,h3 { font-family: 'Playfair Display',serif; }
       <li>You may feel worse before better (die-off reaction)</li>
       <li>Rifaximin can turn urine slightly reddish — normal</li>
       <li>Erythromycin: don't take with a heart condition</li>
-      <li>Don't take antibiotics if pregnant or could be pregnant</li>
       <li>Update Rifaximin & Neomycin doses when prescription arrives</li>
     </ul>
   </div>
@@ -380,6 +379,7 @@ h1,h2,h3 { font-family: 'Playfair Display',serif; }
     <div class="rules-item">✓ Eggs (at home only)</div>
     <div class="rules-item">✓ Chicken, turkey, fish, seafood, tofu, tempeh</div>
     <div class="rules-item">✓ Oat milk, coconut milk, almond milk</div>
+    <div class="rules-item">✓ Soy yoghurt (e.g. Alpro) — check no sugar alcohols/-ol sweeteners</div>
     <div class="rules-item">✓ Olive oil, coconut oil</div>
     <div class="rules-item">✓ Bananas, blueberries, strawberries, oranges, grapes</div>
     <div class="rules-item">✓ Matcha, coffee, black tea, herbal tea, water</div>
@@ -454,17 +454,17 @@ function showMedPhase(phase) {
 const MP = [
   {day:1,date:"Wed 1 Apr",batch:"A",drink:"Matcha latte: 1 tsp matcha + 200ml oat milk",breakfast:{m:"Overnight oats: 50g oats + 200ml oat milk + 1 banana (sliced) + 1 tsp maple syrup — prep night before",k:350},lunch:{m:"Chicken rice bowl: 150g chicken breast + 50g dry white rice (cooked ~130g) + 150g cooked courgette + 1 tbsp olive oil + lemon + salt",k:480},dinner:{m:"Same — chicken rice bowl (batch A, portion 2 of 3)",k:480},snack:{m:"2 rice cakes + 1 tbsp strawberry jam (no added sugar) + 1 small banana",k:190},total:1500},
   {day:2,date:"Thu 2 Apr",batch:"A",drink:"Matcha oat milk",breakfast:{m:"White sourdough toast (2 slices, ~70g) + 1 mashed banana + drizzle maple syrup",k:340},lunch:{m:"Chicken rice bowl (batch A, portion 3 of 3)",k:480},dinner:{m:"Batch B — Salmon pasta: 60g dry white pasta (~150g cooked) + 150g salmon fillet + 100g cooked spinach + 1 tbsp olive oil + lemon",k:520},snack:{m:"1 orange + 2 rice cakes",k:130},total:1470},
-  {day:3,date:"Fri 3 Apr",batch:"B",drink:"Matcha oat milk",breakfast:{m:"Overnight oats: 50g oats + 200ml oat milk + 80g blueberries + 1 tsp maple syrup",k:330},lunch:{m:"Salmon pasta (batch B, portion 2)",k:520},dinner:{m:"Salmon pasta (batch B, portion 3)",k:520},snack:{m:"Smoothie: 1 banana + 80g strawberries + 150ml oat milk",k:190},total:1560},
+  {day:3,date:"Fri 3 Apr",batch:"B",drink:"Matcha oat milk",breakfast:{m:"Overnight oats: 50g oats + 150ml oat milk + 100g Alpro soy yoghurt + 80g blueberries + 1 tsp maple syrup — prep night before",k:350},lunch:{m:"Salmon pasta (batch B, portion 2)",k:520},dinner:{m:"Salmon pasta (batch B, portion 3)",k:520},snack:{m:"Smoothie: 1 banana + 80g strawberries + 150ml oat milk",k:190},total:1560},
   {day:4,date:"Sat 4 Apr",batch:"C",drink:"Matcha oat milk",breakfast:{m:"Porridge: 50g oats + 250ml oat milk + 1 banana + pinch cinnamon — cook on stove",k:370},lunch:{m:"Batch C — Baked potato (200g) + tinned tuna in olive oil (1 can, ~120g drained) + 150g cooked green beans + lemon",k:440},dinner:{m:"Baked potato + tuna (batch C, portion 2)",k:440},snack:{m:"2 rice cakes + 1 tbsp blueberry jam (no added sugar)",k:120},total:1370},
   {day:5,date:"Sun 5 Apr",batch:"C/D",drink:"Matcha oat milk",breakfast:{m:"White sourdough toast (2 slices) + 1 tbsp strawberry jam + 1 banana",k:360},lunch:{m:"Baked potato + tuna (batch C, portion 3)",k:440},dinner:{m:"Batch D — Chicken stir-fry: 150g chicken + 50g dry white rice + 100g cooked peppers + 100g cooked courgette + 1 tbsp soy sauce + ginger + 1 tbsp olive oil",k:500},snack:{m:"1 banana + 80g grapes",k:150},total:1450},
-  {day:6,date:"Mon 6 Apr",batch:"D",drink:"Matcha oat milk",breakfast:{m:"Overnight oats: 50g oats + 200ml oat milk + 80g strawberries + 1 tsp maple syrup",k:330},lunch:{m:"Chicken stir-fry (batch D, portion 2)",k:500},dinner:{m:"Chicken stir-fry (batch D, portion 3)",k:500},snack:{m:"2 rice cakes + 1 tbsp blueberry jam",k:120},total:1450},
+  {day:6,date:"Mon 6 Apr",batch:"D",drink:"Matcha oat milk",breakfast:{m:"Overnight oats: 50g oats + 150ml oat milk + 100g Alpro soy yoghurt + 80g strawberries + 1 tsp maple syrup — prep night before",k:350},lunch:{m:"Chicken stir-fry (batch D, portion 2)",k:500},dinner:{m:"Chicken stir-fry (batch D, portion 3)",k:500},snack:{m:"2 rice cakes + 1 tbsp blueberry jam",k:120},total:1450},
   {day:7,date:"Tue 7 Apr",batch:"D/E",drink:"Matcha oat milk",breakfast:{m:"Porridge: 50g oats + 250ml oat milk + 80g blueberries + cinnamon",k:340},lunch:{m:"Leftover stir-fry or repeat favourite from Week 1",k:480},dinner:{m:"Batch E — Prawn noodle bowl: 150g prawns + 60g dry rice noodles + 100g cooked bok choy + 1 tbsp soy sauce + ginger + 1 tbsp olive oil",k:430},snack:{m:"1 banana + 80g grapes",k:150},total:1400},
   {day:8,date:"Wed 8 Apr",batch:"E",drink:"Matcha oat milk",breakfast:{m:"Overnight oats: 50g oats + 200ml oat milk + 1 banana + 1 tsp maple syrup",k:350},lunch:{m:"Prawn noodle bowl (batch E, portion 2)",k:430},dinner:{m:"Prawn noodle bowl (batch E, portion 3)",k:430},snack:{m:"2 rice cakes + 1 tbsp strawberry jam + 1 small banana",k:190},total:1400},
   {day:9,date:"Thu 9 Apr",batch:"F",drink:"Matcha oat milk",breakfast:{m:"White sourdough toast (2 slices) + 1 mashed banana + drizzle maple syrup",k:340},lunch:{m:"Batch F — Cod pasta: 60g dry white pasta + 150g cod fillet + 100g cooked cherry tomatoes + fresh basil + 1 tbsp olive oil",k:490},dinner:{m:"Cod pasta (batch F, portion 2)",k:490},snack:{m:"1 orange + 2 rice cakes",k:130},total:1450},
-  {day:10,date:"Fri 10 Apr",batch:"F/G",drink:"Matcha oat milk",breakfast:{m:"Overnight oats: 50g oats + 200ml oat milk + 80g blueberries + maple syrup",k:330},lunch:{m:"Cod pasta (batch F, portion 3)",k:490},dinner:{m:"Batch G — Tofu rice bowl: 150g firm tofu + 50g dry white rice + 100g cooked peppers + 100g cooked spinach + soy sauce + ginger + 1 tbsp olive oil",k:470},snack:{m:"Smoothie: 1 banana + 80g blueberries + 150ml oat milk",k:190},total:1480},
+  {day:10,date:"Fri 10 Apr",batch:"F/G",drink:"Matcha oat milk",breakfast:{m:"Overnight oats: 50g oats + 150ml oat milk + 100g Alpro soy yoghurt + 80g blueberries + maple syrup — prep night before",k:350},lunch:{m:"Cod pasta (batch F, portion 3)",k:490},dinner:{m:"Batch G — Tofu rice bowl: 150g firm tofu + 50g dry white rice + 100g cooked peppers + 100g cooked spinach + soy sauce + ginger + 1 tbsp olive oil",k:470},snack:{m:"Smoothie: 1 banana + 80g blueberries + 150ml oat milk",k:190},total:1480},
   {day:11,date:"Sat 11 Apr",batch:"G",drink:"Matcha oat milk",breakfast:{m:"Porridge: 50g oats + 250ml oat milk + 1 banana + cinnamon",k:370},lunch:{m:"Tofu rice bowl (batch G, portion 2)",k:470},dinner:{m:"Tofu rice bowl (batch G, portion 3)",k:470},snack:{m:"2 rice cakes + 1 tbsp blueberry jam",k:120},total:1430},
   {day:12,date:"Sun 12 Apr",batch:"H",drink:"Matcha oat milk",breakfast:{m:"White sourdough toast (2 slices) + 1 tbsp strawberry jam + 1 banana",k:360},lunch:{m:"Batch H — Sea bass + mash: 150g sea bass fillet + 200g potato (mashed with oat milk) + 100g steamed carrots + 1 tbsp olive oil + lemon",k:470},dinner:{m:"Sea bass + mash (batch H, portion 2)",k:470},snack:{m:"1 banana + 80g grapes",k:150},total:1450},
-  {day:13,date:"Mon 13 Apr",batch:"H",drink:"Matcha oat milk",breakfast:{m:"Overnight oats: 50g oats + 200ml oat milk + 80g strawberries + maple syrup",k:330},lunch:{m:"Sea bass + mash (batch H, portion 3)",k:470},dinner:{m:"Repeat your favourite batch from the 2 weeks — still low ferm + dairy free",k:480},snack:{m:"2 rice cakes + 1 tbsp strawberry jam",k:120},total:1400},
+  {day:13,date:"Mon 13 Apr",batch:"H",drink:"Matcha oat milk",breakfast:{m:"Overnight oats: 50g oats + 150ml oat milk + 100g Alpro soy yoghurt + 80g strawberries + maple syrup — prep night before",k:350},lunch:{m:"Sea bass + mash (batch H, portion 3)",k:470},dinner:{m:"Repeat your favourite batch from the 2 weeks — still low ferm + dairy free",k:480},snack:{m:"2 rice cakes + 1 tbsp strawberry jam",k:120},total:1400},
   {day:14,date:"Tue 14 Apr ✨ Last Day!",batch:"—",drink:"Matcha oat milk",breakfast:{m:"Porridge: 50g oats + 250ml oat milk + 1 banana + 80g blueberries + cinnamon + maple syrup",k:400},lunch:{m:"Your favourite batch from the 2 weeks",k:470},dinner:{m:"Your favourite batch — celebrate finishing! 🎉",k:470},snack:{m:"Smoothie: banana + strawberries + oat milk",k:190},total:1530}
 ];
 
@@ -521,7 +521,7 @@ const G1 = {
   "🥬 Vegetables (cook all soft!)":["Courgette (zucchini) — 4","Spinach (fresh/frozen) — 300g","Green beans — 250g","Peppers (red/yellow) — 4","Cherry tomatoes — 250g","Bok choy — 2 heads","Carrots — 4"],
   "🍌 Fruit":["Bananas — 10 (buy in 2 batches)","Blueberries — 250g","Strawberries — 250g","Grapes — 200g","Oranges — 3","Lemons — 3"],
   "🫙 Pantry & Oils":["Extra virgin olive oil","Soy sauce or tamari","Fresh ginger — 1 knob","Maple syrup — small bottle","Strawberry jam — no added sugar (\"sin azúcares añadidos\")","Blueberry jam — no added sugar","Fresh basil — 1 pot","Ground cinnamon","Salt & pepper"],
-  "🥛 Dairy-Free & Drinks":["Oat milk — 3 litres (\"bebida de avena\")","Matcha powder — 1 tin/pouch (30g+)","Coffee / tea"],
+  "🥛 Dairy-Free & Drinks":["Oat milk — 3 litres (\"bebida de avena\")","Alpro soy yoghurt — 2 × 500g (plain, check no sugar alcohols)","Matcha powder — 1 tin/pouch (30g+)","Coffee / tea"],
   "💊 Supplements — ORDER ONLINE NOW":["Biofilm Phase-2 Advanced → naturesfix.co.uk","PHGG (optional) → naturesfix.co.uk","L-glutamine powder → uk.iherb.com","S. boulardii → optibacprobiotics.com","⚠️ Delivery to Barcelona may take 3–5 days!"]
 };
 const G2 = {
@@ -529,7 +529,7 @@ const G2 = {
   "🍞 Carbs (top up)":["White sourdough — 1 loaf if needed","White pasta — 300g if low","White rice — 300g if low","Rice noodles — top up","Oats — top up","Rice cakes — top up","Potatoes — 4 medium"],
   "🥬 Vegetables":["Bok choy — 2 heads","Cherry tomatoes — 250g","Peppers — 3","Spinach — 200g","Carrots — 4","Courgette — 2"],
   "🍌 Fruit":["Bananas — 8","Blueberries — 250g","Strawberries — 250g","Grapes — 200g","Oranges — 2","Lemons — 2"],
-  "🔄 Check Stock & Top Up":["Oat milk — ~2 more litres","Maple syrup","Jams","Fresh basil","Fresh ginger","Matcha powder"]
+  "🔄 Check Stock & Top Up":["Oat milk — ~2 more litres","Alpro soy yoghurt — 2 × 500g if low","Maple syrup","Jams","Fresh basil","Fresh ginger","Matcha powder"]
 };
 
 let groceryWeek = saved.groceryWeek || 1;
